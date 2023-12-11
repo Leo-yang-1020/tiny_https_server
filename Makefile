@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wextra -g
-LDFLAGS =
+LDFLAGS = -lssl -lcrypto
 
 TARGET = http_server
 SRCS = http_server.c http.c server.c
@@ -12,11 +12,11 @@ DEPS = http_server.h
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(LDFLAGS) $^ -o $@
+	$(CC)  $^ -o $@ $(LDFLAGS)
 	rm -f $(OBJS)
 
 %.o: %.c $(DEPS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC)  $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(TARGET)

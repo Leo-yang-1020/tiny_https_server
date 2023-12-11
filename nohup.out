@@ -1,0 +1,14 @@
+281473271302624:error:1408F09C:SSL routines:ssl3_get_record:http request:../ssl/record/ssl3_record.c:321:
+281473271302624:error:1408F09C:SSL routines:ssl3_get_record:http request:../ssl/record/ssl3_record.c:321:
+Accepted connection from (Ïıÿÿ, ˆ-ıÿÿ), connfd 4
+GET /index.html HTTP/1.1
+filename: ./index.html
+conndfd 4 closed
+281472829213152:error:14094418:SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca:../ssl/record/rec_layer_s3.c:1543:SSL alert number 48
+Accepted connection from (Ïıÿÿ, ˆ-ıÿÿ), connfd 4
+Accepted connection from (Ïıÿÿ, ˆ-ıÿÿ), connfd 4
+åŠ è½½è¯ä¹¦...
+åŠ è½½ç§é’¥...
+éªŒè¯ç§é’¥...
+GET /index.html HTTP/1.1
+filename: ./index.html

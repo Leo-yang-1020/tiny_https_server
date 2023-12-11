@@ -14,7 +14,6 @@ class MyTopo(Topo):
 
         self.addLink(h1, s1, bw=100, delay='10ms')
         self.addLink(h2, s1)
-        h1.cmd('ping 127.0.0.1')
 
 topo = MyTopo()
 net = Mininet(topo = topo, switch = OVSBridge, link = TCLink, controller = None)

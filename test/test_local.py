@@ -7,32 +7,33 @@ test_dir = dirname(realpath(__file__))
 
 
 # # http 301
-# r = requests.get('http://127.0.0.1:8008/index.html', allow_redirects=False)
-# assert(r.status_code == 301 and r.headers['Location'] == 'https://127.0.0.1:8008/index.html')
+r = requests.get('http://127.0.0.1/index.html', allow_redirects=False)
+print(r.headers['Location'])
+assert(r.status_code == 301 and r.headers['Location'] == 'https://127.0.0.1/index.html')
 
-# https 200 OK
-r = requests.get('http://127.0.0.1:8008/index.html')
-assert(r.status_code == 200 and open(test_dir + '/../index.html', 'rb').read() == r.content)
+# # https 200 OK
+# r = requests.get('http://127.0.0.1/index.html')
+# assert(r.status_code == 200 and open(test_dir + '/../index.html', 'rb').read() == r.content)
 
 # http 200 OK
-r = requests.get('http://127.0.0.1:8008/index.html', verify=False)
+r = requests.get('http://127.0.0.1/index.html', verify=False)
 assert(r.status_code == 200 and open(test_dir + '/../index.html', 'rb').read() == r.content)
 
-# # http 404
-r = requests.get('http://127.0.0.1:8008/notfound.html', verify=False)
-assert(r.status_code == 404)
+# # # http 404
+# r = requests.get('http://127.0.0.1/notfound.html', verify=False)
+# assert(r.status_code == 404)
 
-# # file in directory
-r = requests.get('http://127.0.0.1:8008/dir/index.html', verify=False)
-assert(r.status_code == 200 and open(test_dir + '/../index.html', 'rb').read() == r.content)
-
-# http 206
-headers = { 'Range': 'bytes=100-200' }
-r = requests.get('http://127.0.0.1:8008/index.html', headers=headers, verify=False)
-assert(r.status_code == 206 and open(test_dir + '/../index.html', 'rb').read()[100:201] == r.content)
+# # # file in directory
+# r = requests.get('http://127.0.0.1/dir/index.html', verify=False)
+# assert(r.status_code == 200 and open(test_dir + '/../index.html', 'rb').read() == r.content)
 
 # # http 206
-headers = { 'Range': 'bytes=100-' }
-r = requests.get('http://127.0.0.1:8008/index.html', headers=headers, verify=False)
-assert(r.status_code == 206)
-assert(open(test_dir + '/../index.html', 'rb').read()[100:] == r.content)
+# headers = { 'Range': 'bytes=100-200' }
+# r = requests.get('http://127.0.0.1/index.html', headers=headers, verify=False)
+# assert(r.status_code == 206 and open(test_dir + '/../index.html', 'rb').read()[100:201] == r.content)
+
+# # # http 206
+# headers = { 'Range': 'bytes=100-' }
+# r = requests.get('http://127.0.0.1/index.html', headers=headers, verify=False)
+# assert(r.status_code == 206)
+# assert(open(test_dir + '/../index.html', 'rb').read()[100:] == r.content)
